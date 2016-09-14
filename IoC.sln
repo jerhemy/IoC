@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{06120C30-B797-4B5C-84CB-802E2F74DC40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC.Web", "IoC.Web\IoC.Web.csproj", "{1511D38E-23A7-435F-B5FA-9475072A53E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{06120C30-B797-4B5C-84CB-802E2F74DC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06120C30-B797-4B5C-84CB-802E2F74DC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06120C30-B797-4B5C-84CB-802E2F74DC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1511D38E-23A7-435F-B5FA-9475072A53E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1511D38E-23A7-435F-B5FA-9475072A53E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1511D38E-23A7-435F-B5FA-9475072A53E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1511D38E-23A7-435F-B5FA-9475072A53E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
