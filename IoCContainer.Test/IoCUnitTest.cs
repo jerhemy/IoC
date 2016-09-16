@@ -9,7 +9,7 @@ namespace IoCContainer.Test
     public class IoCUnitTest
     {
         [TestMethod]
-        public void Resolve_RegisteredType()
+        public void Resolve_Registered_Type()
         {
             var container = new IocContainer();
             container.Register<ILogger, Logger>();
@@ -18,15 +18,7 @@ namespace IoCContainer.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TypeLoadException))]
-        public void Resolve_UnRegisteredType_ThrowsException()
-        {
-            var container = new IocContainer();
-            var logger = container.Resolve<ILogger>();
-        }
-
-        [TestMethod]
-        public void Resolve_Class_DependencyInjection()
+        public void Resolve_Registered_Type_Class()
         {
             var container = new IocContainer();
             container.Register<ILogger, Logger>();
@@ -36,9 +28,18 @@ namespace IoCContainer.Test
             Assert.IsInstanceOfType(userController, typeof(UserController));
         }
 
+
         [TestMethod]
         [ExpectedException(typeof(TypeLoadException))]
-        public void Resolve_UnRegisteredType_Class_DependencyInjection()
+        public void Resolve_UnRegistered_Type_Throws_TypeLoadException()
+        {
+            var container = new IocContainer();
+            var logger = container.Resolve<ILogger>();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TypeLoadException))]
+        public void Resolve_UnRegistered_Injection_Class_Throws_TypeLoadExceptionn()
         {
             var container = new IocContainer();
             container.Register<IUserController, UserController>();
@@ -62,7 +63,7 @@ namespace IoCContainer.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void Register_Invalid_Interface()
+        public void Register_Invalid_Interface_Throws_ArgumentException()
         {
             var container = new IocContainer();
             container.Register<Logger, Logger>();
@@ -70,7 +71,7 @@ namespace IoCContainer.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void Register_Invalid_Class()
+        public void Register_Invalid_Class_Throws_ArgumentException()
         {
             var container = new IocContainer();
             container.Register<ILogger, ILogger>();

@@ -15,12 +15,12 @@ namespace IoCContainer
         {
             if(!typeof(TType).IsInterface) {
 
-                throw new ArgumentException("TType is not an Interface");
+                throw new ArgumentException(string.Format("{0} is not an Interface", typeof(TType)));
             }
 
             if (!typeof(TClass).IsClass)
             {
-                throw new ArgumentException("TClass is not an Class");
+                throw new ArgumentException(string.Format("{0} is not a Class", typeof(TClass)));
             }
 
             _types[typeof(TType)] = typeof(TClass);
