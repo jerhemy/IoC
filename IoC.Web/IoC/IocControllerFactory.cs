@@ -32,7 +32,8 @@ namespace IoCContainer
             {
                 try
                 {
-                    _controller = (IController)_container.Resolve(tinterface);             
+                    _controller = (IController)_container.Resolve(tinterface);
+                    break;            
                 }
                 catch (Exception ex)
                 {
