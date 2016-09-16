@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IHomeController.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="IoC\IocControllerFactory.cs" />
     <Compile Include="Models\Logger.cs" />

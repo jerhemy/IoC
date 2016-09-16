@@ -14,7 +14,7 @@ namespace IoC.Web.App_Start
         public static void Configure(IocContainer container)
         {
             container.Register<ILogger, Logger>();
-            container.Register<HomeController, HomeController>();
+            container.Register<IHomeController, HomeController>();
         }
     }
 }

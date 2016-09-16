@@ -18,7 +18,7 @@ namespace IoCContainer.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(TypeLoadException))]
         public void Resolve_UnRegisteredType_ThrowsException()
         {
             var container = new IocContainer();
@@ -37,7 +37,7 @@ namespace IoCContainer.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(TypeLoadException))]
         public void Resolve_UnRegisteredType_Class_DependencyInjection()
         {
             var container = new IocContainer();
@@ -58,6 +58,22 @@ namespace IoCContainer.Test
             var userController2 = container.Resolve<IUserController>();
 
             Assert.AreSame(userController1, userController2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Register_Invalid_Interface()
+        {
+            var container = new IocContainer();
+            container.Register<Logger, Logger>();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Register_Invalid_Class()
+        {
+            var container = new IocContainer();
+            container.Register<ILogger, ILogger>();
         }
 
     }

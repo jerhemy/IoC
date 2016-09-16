@@ -13,6 +13,16 @@ namespace IoCContainer
         //Register Type with Default Lifecycle
         public void Register<TType, TClass>() where TClass : class
         {
+            if(!typeof(TType).IsInterface) {
+
+                throw new ArgumentException("TType is not an Interface");
+            }
+
+            if (!typeof(TClass).IsClass)
+            {
+                throw new ArgumentException("TClass is not an Class");
+            }
+
             _types[typeof(TType)] = typeof(TClass);
         }
 
@@ -35,7 +45,7 @@ namespace IoCContainer
         {
             if (!_singletonTypes.ContainsKey(contract) && !_types.ContainsKey(contract))
             {
-                throw new Exception(string.Format("{0} not Registered.", contract));
+                throw new TypeLoadException(string.Format("{0} not Registered.", contract));
             }
 
             if (_singletonTypes.ContainsKey(contract))

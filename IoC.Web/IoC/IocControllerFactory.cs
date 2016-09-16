@@ -26,7 +26,22 @@ namespace IoCContainer
             if (controllerType == null)
                 return null;
 
-            return (IController)_container.Resolve(controllerType);
+            IController _controller = null;
+
+            foreach (Type tinterface in controllerType.GetInterfaces())
+            {
+                try
+                {
+                    _controller = (IController)_container.Resolve(tinterface);             
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            return _controller;
+            //return (IController)_container.Resolve(controllerType);
         }
 
         public override IController CreateController(RequestContext requestContext, string controllerName)

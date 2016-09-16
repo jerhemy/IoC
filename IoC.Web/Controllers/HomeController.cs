@@ -7,7 +7,7 @@ using IoC.Web.Interfaces;
 
 namespace IoC.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller, IHomeController
     {
         public ILogger _logger;
         public HomeController(ILogger logger)
